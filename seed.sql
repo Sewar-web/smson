@@ -8,3 +8,4 @@ CREATE TABLE smson
     characterDirection VARCHAR(255)
      
 );
+

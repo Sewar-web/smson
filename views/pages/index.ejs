@@ -9,24 +9,21 @@
 <body>
     <main>
       
-        <%sipson.forEach(element => {%>
+        <% data.forEach(element => { %>
             <h1><%=element.quote %></h1>
             <h1><%=element.character %></h1>
             <img src="<%=element.image %>" alt="">
             <h1><%=element.characterDirection %></h1>
 
-            <form action="/save" id="form">
-           
-            <input type="hidden" name="quote" value="<%=element.quote %>">
-           
-            <input type="hidden" name="character" value="<%=element.character %>">
-          
-            <input type="hidden" name="image" value="<%=element.image %>">
-           
-            <input type="hidden" name="characterDirection" value="<%=element.characterDirection %>">
-            <br>
-            <br>
-            <button>SAVA QUOTE</button>
+        
+            <form action="/save">
+                <input type="hidden" name="quote" value="<%=element.quote %>">
+                <input type="hidden" name="character" value="<%=element.character %>">
+                <input type="hidden" name="image" value="<%=element.image %>">
+                <input type="hidden" name="characterDirection" value="<%=element.characterDirection %>">
+
+                <button>save quots</button>
+
             </form>
             <% });  %> 
 
