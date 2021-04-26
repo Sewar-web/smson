@@ -16,7 +16,7 @@
             <h1><%=element.characterDirection %></h1>
 
         
-            <form action="/save">
+            <form action="/save" method="POST">
                 <input type="hidden" name="quote" value="<%=element.quote %>">
                 <input type="hidden" name="character" value="<%=element.character %>">
                 <input type="hidden" name="image" value="<%=element.image %>">

@@ -24,14 +24,14 @@
     </main>
     <section>
         <button id="updata">updata</button>
-        <form id="form" action="/updata/<%=data.id  %> ">
+        <form id="form" action="/updata/<%=data.id  %> ?_method=put" method="POST">
         <input type="text" name="quote" id="quote" value="<%=data.quote  %>">
         <button>updata</button>
         </form>
     </section>
 
     <section>
-        <form action="/delet/<%=data.id  %>">
+        <form action="/delet/<%=data.id  %> ?_method=delete" method="POST">
             
         <button>delet</button></form>
     </section>

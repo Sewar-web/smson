@@ -10,7 +10,8 @@ const methodOverride=require('method-override');
 const cors=require('cors');
 server.use(cors());
 
-const client = new pg.Client(process.env.DATABASE_URL);
+// const client = new pg.Client(process.env.DATABASE_URL);
+const client = new pg.Client({ connectionString: process.env.DATABASE_URL,   ssl: { rejectUnauthorized: false } });
 
 
 server.use(methodOverride('_method'));
@@ -37,10 +38,10 @@ function homehandeld(req ,res)
 }
 ////////////////////////////////////
 
-server.get('/save' , savehandled)
+server.post('/save' , savehandled)
 function savehandled (req ,res)
 {
-    let{quote ,character , image ,characterDirection}=req.query;
+    let{quote ,character , image ,characterDirection}=req.body;
     let SQL=`INSERT INTO smson (quote ,character , image ,characterDirection)
     VALUES($1,$2, $3, $4 ) RETURNING *`;
     let savedata=[quote ,character , image ,characterDirection];
@@ -78,10 +79,10 @@ function detailshandled (req ,res)
 }
 
 //////////////////
-server.get('/updata/:id' , updatehandled)
+server.put('/updata/:id' , updatehandled)
 function updatehandled(req ,res)
 {
-   let{quote ,character ,image ,characterDirection}=req.query;
+   let{quote ,character ,image ,characterDirection}=req.body;
    let SQL=`UPDATE  smson SET quote=$1 WHERE id=$2;`;
    let save=[quote ,req.params.id];
    client.query(SQL,save)
@@ -90,7 +91,7 @@ function updatehandled(req ,res)
    });
 }
 
-server.get('/delet/:id' , delethandled)
+server.delete('/delet/:id' , delethandled)
 function delethandled(req ,res )
 {
     let sql=`UPDATE smson SET quote= null WHERE id=$1;`;
