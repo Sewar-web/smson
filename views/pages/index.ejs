@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+      
+        <%sipson.forEach(element => {%>
+            <h1><%=element.quote %></h1>
+            <h1><%=element.character %></h1>
+            <img src="<%=element.image %>" alt="">
+            <h1><%=element.characterDirection %></h1>
+
+            <form action="/save" id="form">
+           
+            <input type="hidden" name="quote" value="<%=element.quote %>">
+           
+            <input type="hidden" name="character" value="<%=element.character %>">
+          
+            <input type="hidden" name="image" value="<%=element.image %>">
+           
+            <input type="hidden" name="characterDirection" value="<%=element.characterDirection %>">
+            <br>
+            <br>
+            <button>SAVA QUOTE</button>
+            </form>
+            <% });  %> 
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>

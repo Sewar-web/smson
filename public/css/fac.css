@@ -1,0 +1,25 @@
+*{
+    box-sizing: border-box;
+}
+
+
+div{
+     background-color: blueviolet;
+    
+}
+main{
+
+  
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2%;
+
+   
+    
+}
+body
+{
+    background-color: rgb(8, 143, 98); 
+}
